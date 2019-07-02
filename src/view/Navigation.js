@@ -3,10 +3,7 @@ import {Nav} from 'react-bootstrap';
 import {Link, BrowserRouter as Router} from 'react-router-dom';
 import AppRouter from '../route/AppRouter.js';
 
-    //TODO: pisah route, pake on select di nav bootstrap react
-
 const Navigation = () => {
-
     return(
         <Router>
             <Nav variant="pills" defaultActiveKey={window.location.pathname}>

@@ -4,7 +4,6 @@ import BoxInput from "../view/BoxInput";
 import BoxGetTransponder from "../view/BoxGetTransponder";
 
 const AppRouter = () => {
-
     return(  
         <div>
             <Route

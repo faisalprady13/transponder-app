@@ -54,6 +54,7 @@ const BoxGetTransponder = () => {
            
           })
           .catch(error => {
+              setResultStatus(JSON.stringify(error.message));
             console.log(error);
           });
     }

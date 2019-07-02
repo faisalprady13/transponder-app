@@ -20,7 +20,7 @@ const BoxGetTransponder = () => {
                     <Form.Label>Paste Company ID here</Form.Label>
                     <Form.Control type="text" defaultValue="" onChange= {event => setCompanyId(event.target.value)} placeholder="e.g: 123"/>
                 </Form.Group>
-                <Button  className="mx-3" variant="primary" onClick={() =>{getTransponder(companyId)}}>Get List</Button>
+                <Button  className="mx-3" variant="success" onClick={() =>{getTransponder(companyId)}}>Get List</Button>
             </Form.Group>
         );
     }
@@ -30,7 +30,7 @@ const BoxGetTransponder = () => {
             <Form.Group as={Col} controlId="resultArea">
                 <Form.Label>Transponder list</Form.Label>
                 <Form.Control style={resultHeight} as="textarea" value={result}/>
-                <Alert variant={ resultStatus ? "success" : "danger" } className="mt-3">
+                <Alert variant={ result ? "success" : "danger" } className="mt-3">
                      {resultStatus}
                 </Alert>
             </Form.Group>
@@ -44,8 +44,14 @@ const BoxGetTransponder = () => {
             }
           })
         .then(response => {
-            setResult(formatResult(JSON.stringify(response.data.message)));
-            setResultStatus(JSON.stringify(response.data.status));
+            if(response.data.status){
+                setResult(formatResult(JSON.stringify(response.data.message)));
+                setResultStatus(JSON.stringify(response.data.status));
+            }else{
+                setResult("");
+                setResultStatus(JSON.stringify(response.data.message));
+            }
+           
           })
           .catch(error => {
             console.log(error);

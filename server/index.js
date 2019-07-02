@@ -20,7 +20,8 @@ app.post('/post', (req, res) => {
     headers: {
     'Content-Type':'application/json',
     'X-Token-HHR': KEY
-    }
+    },
+    timeout: 10000
   })
   .then(response => {
     res.send(response.data);
@@ -36,7 +37,8 @@ app.get('/get', (req, res) => {
   ,{
     headers: {
     'X-Token-HHR': KEY
-    }
+    },
+    timeout: 10000
   })
   .then(response => {
     res.send(response.data);

@@ -48,6 +48,24 @@ app.get('/get', (req, res) => {
   });
 });
 
+app.get('/delete', (req,res) => {
+  const companyId = req.query.companyId;
+  const chipId = req.query.chipId ? req.query.chipId : 0;
+  axios.delete(API+`/api/company/${companyId}/transponder/${chipId}`
+  ,{
+    headers: {
+    'X-Token-HHR': KEY
+    },
+    timeout: 10000
+  })
+  .then(response => {
+    res.send(response.data);
+  })
+  .catch(error => {
+    res.send(error);
+  });
+});
+
 app.listen(port, host, ()=>{
    console.log("Server is running on %s:%s", host, port);
 });

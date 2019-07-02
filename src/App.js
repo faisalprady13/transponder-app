@@ -8,7 +8,7 @@ class App extends Component {
       <Container fluid>
         <Row className="justify-content-md-center">
           <Col md={10}>
-            <legend>Transponder Query Generator (Postman):</legend>
+            <legend>Transponder App (Postman):</legend>
             <Navigation/>
           </Col>
         </Row>

@@ -141,6 +141,7 @@ class BoxInput extends Component{
           })
           .catch(error => {
             this.setState({
+                resultStatus: JSON.stringify(error.message),
                 showResults: false
             });
             console.log(error);
